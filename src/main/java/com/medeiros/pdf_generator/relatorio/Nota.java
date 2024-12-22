@@ -2,6 +2,7 @@ package com.medeiros.pdf_generator.relatorio;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.util.Date;
 
 import com.medeiros.pdf_generator.entity.Cliente;
 import com.medeiros.pdf_generator.entity.Produto;
@@ -24,7 +25,7 @@ public class Nota implements Relatorio {
     private Cliente cliente;
     private Venda venda;
     private Document documentoPDF;
-    private String caminhoDoRelatorio = "Nota.pdf";
+    private final String caminhoDoRelatorio;
     private Font font9;
     private PdfPTable table;
 
@@ -33,6 +34,8 @@ public class Nota implements Relatorio {
         this.venda = venda;
         this.documentoPDF = new Document(PageSize.A4);
         this.font9 = FontFactory.getFont(FontFactory.COURIER, 8);
+
+        this.caminhoDoRelatorio = "nota" + new Date().toInstant().toEpochMilli() + ".pdf";
 
         try {
             PdfWriter.getInstance(this.documentoPDF, new FileOutputStream(caminhoDoRelatorio));
@@ -294,5 +297,13 @@ public class Nota implements Relatorio {
         if (this.documentoPDF != null && this.documentoPDF.isOpen()) {
             this.documentoPDF.close();
         }
+    }
+
+    public String imprimirComRetornoDoNome() {
+        if (this.documentoPDF != null && this.documentoPDF.isOpen()) {
+            this.documentoPDF.close();
+        }
+
+        return this.caminhoDoRelatorio;
     }
 }

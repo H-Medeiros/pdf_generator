@@ -1,0 +1,10 @@
+@url = http://localhost:8080
+
+
+###
+POST {{url}}/api/v1/nota
+Content-Type: application/json
+
+{
+  
+}
