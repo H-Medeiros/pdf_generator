@@ -2,22 +2,22 @@
 
 
 ###
-POST {{url}}/teste/pdf-teste
+POST {{url}}/api/v1/nota/pdf-generator
 Content-Type: application/json
 
 {
     "codigo": 123,
     "cliente": {
         "codigo": 1036,
-        "nome": "ACAI FRUTOS DE PARA LTDA",
-        "endereco": "RUA WELD DE SOUZA MAIA",
-        "cep": 32421030,
-        "bairro": "BELA VISTA",
-        "cidade": "IBIRITE",
+        "nome": "Brasil testes LTDA",
+        "endereco": "RUA AO LADO DA OUTRA",
+        "cep": 12345678,
+        "bairro": "AQUELE",
+        "cidade": "BELO HORIZONTE",
         "estado": "MG",
-        "telefone": "319975706479",
-        "inscest": "40581980093",
-        "cnpjCpe": "42127082000180"
+        "telefone": "333333333333",
+        "inscest": "12121212121",
+        "cnpjCpe": "12341234123412"
     },
     "produtosVendidos": [
         {

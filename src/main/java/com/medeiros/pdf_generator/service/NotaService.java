@@ -14,7 +14,7 @@ import com.medeiros.pdf_generator.relatorio.Nota;
 @Service
 public class NotaService {
 
-    public ResponseEntity<FileSystemResource> testeGerarPdf(Venda venda) {
+    public ResponseEntity<FileSystemResource> gerarPdf(Venda venda) {
 
         Nota relatorioSimples = new Nota(venda);
 
