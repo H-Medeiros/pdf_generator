@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.medeiros.pdf_generator.entity.Venda;
+import com.medeiros.pdf_generator.domain.entity.Venda;
 import com.medeiros.pdf_generator.relatorio.Nota;
 
 @Service

@@ -1,4 +1,4 @@
-package com.medeiros.pdf_generator.entity;
+package com.medeiros.pdf_generator.domain.entity;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

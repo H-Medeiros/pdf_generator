@@ -5,9 +5,6 @@ import java.io.FileOutputStream;
 import java.time.LocalDate;
 import java.util.Date;
 
-import com.medeiros.pdf_generator.entity.Cliente;
-import com.medeiros.pdf_generator.entity.Produto;
-import com.medeiros.pdf_generator.entity.Venda;
 import com.lowagie.text.Chunk;
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
@@ -20,6 +17,9 @@ import com.lowagie.text.Phrase;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
+import com.medeiros.pdf_generator.domain.entity.Cliente;
+import com.medeiros.pdf_generator.domain.entity.Produto;
+import com.medeiros.pdf_generator.domain.entity.Venda;
 
 public class Nota implements Relatorio {
 
@@ -34,6 +34,7 @@ public class Nota implements Relatorio {
         cliente = venda.getCliente();
         this.venda = venda;
         venda.setDataVenda(LocalDate.now());
+        venda.setTotal(venda.calcularValorTotalCarrinho() - venda.getValorDaEntrada());
 
         this.documentoPDF = new Document(PageSize.A4);
         this.font9 = FontFactory.getFont(FontFactory.COURIER, 8);
@@ -247,27 +248,27 @@ public class Nota implements Relatorio {
         table.setTotalWidth(width);
         table.setLockedWidth(true);
 
-        table.addCell(new Phrase("Obs", font9));
+        table.addCell(new Phrase("Obs: " + this.venda.getObs(), font9));
         table.addCell(new Phrase("", font9));
         table.addCell(new Phrase("", font9));
 
         table.addCell(new Phrase("", font9));
-        table.addCell(new Phrase("ACRESCIMO......:", font9));
+        table.addCell(new Phrase("ACRESCIMO......: ", font9));
         table.addCell(new Phrase("", font9));
 
         table.addCell(new Phrase("", font9));
         table.addCell(new Phrase("", font9));
         table.addCell(new Phrase("SUBTOTAL.......: " + this.venda.calcularValorTotalCarrinho(), font9));
 
-        table.addCell(new Phrase("DESCONTO.......:", font9));
-        table.addCell(new Phrase("FRETE..........:", font9));
-        table.addCell(new Phrase("TOTAL GERAL....:", font9));
+        table.addCell(new Phrase("DESCONTO.......: ", font9));
+        table.addCell(new Phrase("FRETE..........: ", font9));
+        table.addCell(new Phrase("TOTAL GERAL....: " + this.venda.getTotal().toString(), font9));
 
-        table.addCell(new Phrase("VALOR DA ENTRADA:", font9));
+        table.addCell(new Phrase("VALOR DA ENTRADA: " + venda.getValorDaEntrada().toString(), font9));
         table.addCell(new Phrase("", font9));
         table.addCell(new Phrase("", font9));
 
-        table.addCell(new Phrase("FORMA DE PAGAMENTO:  " + "PIX", font9));
+        table.addCell(new Phrase("FORMA DE PAGAMENTO:  " + venda.getFormaDePagamento(), font9));
         table.addCell(new Phrase("", font9));
         table.addCell(new Phrase("", font9));
 

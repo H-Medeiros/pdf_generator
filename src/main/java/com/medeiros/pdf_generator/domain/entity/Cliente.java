@@ -1,4 +1,4 @@
-package com.medeiros.pdf_generator.entity;
+package com.medeiros.pdf_generator.domain.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

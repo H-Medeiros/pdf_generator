@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.medeiros.pdf_generator.entity.Venda;
+import com.medeiros.pdf_generator.domain.entity.Venda;
 import com.medeiros.pdf_generator.service.NotaService;
 
 @RestController

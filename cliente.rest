@@ -9,8 +9,8 @@ Content-Type: application/json
     "codigo": 123,
     "cliente": {
         "codigo": 1036,
-        "nome": "Brasil testes LTDA",
-        "endereco": "RUA AO LADO DA OUTRA",
+        "nome": "Thais",
+        "endereco": "Rua ribeirão vermelho",
         "cep": 12345678,
         "bairro": "AQUELE",
         "cidade": "BELO HORIZONTE",
@@ -22,7 +22,7 @@ Content-Type: application/json
     "produtosVendidos": [
         {
             "codigo": 1,
-            "nome": "Linguiça",
+            "nome": "maça",
             "unidade": "PC",
             "quantidade": 1,
             "valor": 2.1
@@ -33,7 +33,17 @@ Content-Type: application/json
             "unidade": "CX",
             "quantidade": 2,
             "valor": 0.9
+        },
+        {
+            "codigo": 2,
+            "nome": "Uva",
+            "unidade": "CX",
+            "quantidade": 3,
+            "valor": 10.0
         }
-    ]
+    ],
+    "formaDePagamento" : "DINHEIRO",
+    "valorDaEntrada" : 15.5,
+    "obs" : ""
 }
 
