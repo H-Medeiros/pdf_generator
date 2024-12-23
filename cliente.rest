@@ -2,9 +2,38 @@
 
 
 ###
-POST {{url}}/api/v1/nota
+POST {{url}}/teste/pdf-teste
 Content-Type: application/json
 
 {
-  
+    "codigo": 123,
+    "cliente": {
+        "codigo": 1036,
+        "nome": "ACAI FRUTOS DE PARA LTDA",
+        "endereco": "RUA WELD DE SOUZA MAIA",
+        "cep": 32421030,
+        "bairro": "BELA VISTA",
+        "cidade": "IBIRITE",
+        "estado": "MG",
+        "telefone": "319975706479",
+        "inscest": "40581980093",
+        "cnpjCpe": "42127082000180"
+    },
+    "produtosVendidos": [
+        {
+            "codigo": 1,
+            "nome": "Linguiça",
+            "unidade": "PC",
+            "quantidade": 1,
+            "valor": 2.1
+        },
+        {
+            "codigo": 2,
+            "nome": "Pera",
+            "unidade": "CX",
+            "quantidade": 2,
+            "valor": 0.9
+        }
+    ]
 }
+

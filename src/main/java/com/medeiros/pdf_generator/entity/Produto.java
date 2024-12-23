@@ -4,13 +4,13 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
+@NoArgsConstructor
 public class Produto {
 
     private Integer codigo;
@@ -18,6 +18,14 @@ public class Produto {
     private String cx;
     private Integer quantidade;
     private Double valor;
+
+    public Produto(Integer codigo, String nome, String cx, Integer quantidade, Double valor) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.cx = cx;
+        this.quantidade = quantidade;
+        this.valor = valor;
+    }
 
     public Double calcularPreco() {
         return this.quantidade * this.valor;

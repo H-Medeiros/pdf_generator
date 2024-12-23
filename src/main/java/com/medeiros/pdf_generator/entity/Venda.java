@@ -6,21 +6,25 @@ import java.time.LocalDate;
 import java.util.List;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
 public class Venda {
 
     private Integer codigo;
     private LocalDate dataVenda;
-    private String nomeCliente;
+    private Cliente cliente;
     private List<Produto> produtosVendidos;
 
-    public Venda(Integer codigo, String nomeCliente, List<Produto> arrList) {
+    // Construtor padrão para serialização/deserialização JSON
+
+    public Venda(Integer codigo, Cliente cliente, List<Produto> arrList) {
         this.codigo = codigo;
         this.dataVenda = LocalDate.now();
-        this.nomeCliente = nomeCliente;
+        this.cliente = cliente;
         this.produtosVendidos = arrList;
     }
 

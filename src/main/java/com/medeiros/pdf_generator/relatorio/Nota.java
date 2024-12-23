@@ -2,6 +2,7 @@ package com.medeiros.pdf_generator.relatorio;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.time.LocalDate;
 import java.util.Date;
 
 import com.medeiros.pdf_generator.entity.Cliente;
@@ -22,16 +23,18 @@ import com.lowagie.text.pdf.PdfWriter;
 
 public class Nota implements Relatorio {
 
-    private Cliente cliente;
     private Venda venda;
+    private Cliente cliente;
     private Document documentoPDF;
     private final String caminhoDoRelatorio;
     private Font font9;
     private PdfPTable table;
 
-    public Nota(Venda venda, Cliente cliente) {
-        this.cliente = cliente;
+    public Nota(Venda venda) {
+        cliente = venda.getCliente();
         this.venda = venda;
+        venda.setDataVenda(LocalDate.now());
+
         this.documentoPDF = new Document(PageSize.A4);
         this.font9 = FontFactory.getFont(FontFactory.COURIER, 8);
 
@@ -73,7 +76,7 @@ public class Nota implements Relatorio {
         table.addCell(new Phrase(cliente.getNome(), font9));
         table.addCell(new Phrase("/ MAQUINA:", font9));
 
-        table.addCell(new Phrase("ENDERECO.: " + cliente.getEndereço(), font9));
+        table.addCell(new Phrase("ENDERECO.: " + cliente.getEndereco(), font9));
         table.addCell(new Phrase("", font9));
         table.addCell(new Phrase("CEP: " + cliente.getCep().toString(), font9));
 
