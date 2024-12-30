@@ -2,7 +2,6 @@ package com.medeiros.pdf_generator.relatorio;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.time.LocalDate;
 import java.util.Date;
 
 import com.lowagie.text.Chunk;
@@ -33,8 +32,6 @@ public class Nota implements Relatorio {
     public Nota(Venda venda) {
         cliente = venda.getCliente();
         this.venda = venda;
-        venda.setDataVenda(LocalDate.now());
-        venda.setTotal(venda.calcularValorTotalCarrinho() - venda.getValorDaEntrada());
 
         this.documentoPDF = new Document(PageSize.A4);
         this.font9 = FontFactory.getFont(FontFactory.COURIER, 8);

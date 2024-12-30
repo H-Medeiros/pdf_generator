@@ -6,15 +6,14 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.medeiros.pdf_generator.domain.enums.FormaDePagamento;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
 public class Venda {
 
     private Integer codigo;
@@ -26,6 +25,7 @@ public class Venda {
     private Double total;
     private String obs;
 
+    @JsonCreator
     public Venda(Integer codigo, Cliente cliente, List<Produto> arrList,
             FormaDePagamento formaDePagamento, Double valorDaEntrada, String obs) {
         this.codigo = codigo;
